@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceStarterCode.Data;
 
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210614204106_addedProductModel")]
+    partial class addedProductModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "17747fa0-a026-4b5c-9610-80a5af02af9e",
-                            ConcurrencyStamp = "03cecd77-1c36-44f8-a5c6-66a8ae6196a6",
+                            Id = "0adef3fd-5887-45fd-af60-eb152e56ad5c",
+                            ConcurrencyStamp = "2770f0df-92e9-4221-8aa4-621151c1edfa",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "24b21d80-7e99-4423-8c81-5a5ee6e89e7e",
-                            ConcurrencyStamp = "b6e5d948-a5ef-415d-a1f5-cd44d8949029",
+                            Id = "7dd359c6-f5c3-4897-b43b-e4b5ba0c7a3e",
+                            ConcurrencyStamp = "23a344bf-c362-47a2-8f3c-be0792abe67f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -164,36 +166,6 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("eCommerceStarterCode.Models.Product", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AgeRating")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Genre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ProductId");
-
-                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.User", b =>
