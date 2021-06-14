@@ -19,6 +19,5 @@ namespace eCommerceStarterCode.Data
 
             modelBuilder.ApplyConfiguration(new RolesConfiguration());
         }
-
     }
 }
