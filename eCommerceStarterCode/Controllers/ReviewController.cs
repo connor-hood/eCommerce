@@ -34,5 +34,5 @@ namespace eCommerceStarterCode.Controllers
         }
     }
 
-    //what would be the naming convention and placement of the detail requests?
+    // TODO: needs getbyid/put/delete
 }

@@ -14,6 +14,7 @@ namespace eCommerceStarterCode.Models
         public string AgeRating { get; set; }
         public string Genre { get; set; }
         public int Price { get; set; }
-        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
+
+        //public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

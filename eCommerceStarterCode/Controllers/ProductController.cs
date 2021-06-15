@@ -42,15 +42,20 @@ namespace eCommerceStarterCode.Controllers
 
             return Ok(product);
         }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) {
 
             //loops through products and nabs a specific one to be deleted
             foreach (var p in _context.Products.Where(product => product.ProductId == id).ToArray()) _context.Products.Remove(p);
+            _context.SaveChanges();
 
-            //var product = _context.Products.Where(p => p.ProductId == id).FirstOrDefault() ;
+            //var product = _context.Products.Where(p => p.ProductId == id).FirstOrDefault();
             //_context.Products.Remove(product);
+
             return StatusCode(204);
         }
+
+        // TODO: needs a put request
     }
 }
