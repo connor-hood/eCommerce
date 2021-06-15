@@ -17,6 +17,7 @@ namespace eCommerceStarterCode.Data
         public DbSet<Review> Reviews { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ShoppingCart>().HasKey(SC => new { SC.UserId, SC.ProductId });
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new RolesConfiguration());

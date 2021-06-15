@@ -8,19 +8,16 @@ namespace eCommerceStarterCode.Models
 {
     public class Review
     {
-        //should this class also be many to many
         public int ReviewId { get; set; }
         public int Rating { get; set; }
         public string Text { get; set; }
 
         [ForeignKey("Product")]
-
-        //why do we make this is a string?
-        public string ProductId { get; set; }
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         [ForeignKey("User")]
         public string UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }
