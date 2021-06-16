@@ -56,17 +56,17 @@ namespace eCommerceStarterCode.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Review value)
         {
-            var Review = _context.Reviews.Where(r => r.ReviewId == id).SingleOrDefault();
-            Review.Rating = value.Rating;
-            Review.Text = value.Text;
-            Review.ProductId = value.ProductId;
-            Review.Product = value.Product;
-            Review.UserId = value.UserId;
-            Review.User = value.User;
+            var rev = _context.Reviews.Where(r => r.ReviewId == id).SingleOrDefault();
+            rev.Rating = value.Rating;
+            rev.Text = value.Text;
+            rev.ProductId = value.ProductId;
+            rev.Product = value.Product;
+            rev.UserId = value.UserId;
+            rev.User = value.User;
 
             _context.SaveChanges();
 
-            return Ok(Review);
+            return Ok(rev);
         }
 
 
