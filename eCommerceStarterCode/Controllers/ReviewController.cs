@@ -33,12 +33,11 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
-    
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var Review = _context.Reviews.Where(r => r.ReviewId == id).SingleOrDefault();
+            var Review = _context.Reviews.Where(r => r.ProductId == id);
 
             return Ok(Review);
         }
