@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eCommerceStarterCode.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceStarterCode.Controllers
 {
@@ -23,7 +24,8 @@ namespace eCommerceStarterCode.Controllers
         [HttpGet("{userId}")]
         public IActionResult Get(string userId)
         {
-            var items = _context.ShoppingCarts.Where(i => i.UserId == userId).ToList();
+            var items = _context.ShoppingCarts.Include(i => i.Product).Include(i => i.User).Where(i => i.UserId == userId).ToList();
+
             return StatusCode(200, items);
         }
 
